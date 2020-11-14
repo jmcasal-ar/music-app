@@ -8,8 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MusicApp">
-        <activity android:name=".MainActivity"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".AboutMeActivity"></activity>
+        <activity android:name=".AddSongActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

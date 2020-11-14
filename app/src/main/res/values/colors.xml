@@ -5,6 +5,6 @@
     <color name="colorAccent">#CE93D8</color>
     <color name="default_background">#F3E5F5</color>
     <color name="white">#ffff</color>
-    <color name="discount">#939393</color>
+    <color name="black">#353737</color>
     <color name="discount_percent">#4D962B</color>
 </resources>

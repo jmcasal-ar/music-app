@@ -2,7 +2,7 @@ package com.example.musicapp.db
 
 import android.content.Context
 import com.example.musicapp.Song
-import com.example.steam.db.DBHelper
+import com.example.musicapp.db.DBHelper
 import com.j256.ormlite.android.apptools.OpenHelperManager
 import com.j256.ormlite.dao.Dao
 

@@ -12,14 +12,14 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity(),
     SongsListener {
 
-        private lateinit var  rvSongs : RecyclerView
-        private lateinit var coordinatorLayout: CoordinatorLayout
-        private lateinit var fabAdd: FloatingActionButton
-        private val adapter: SongAdapter by lazy {
-            SongAdapter(
-                this
-            )
-        }
+    private lateinit var rvSongs: RecyclerView
+    private lateinit var coordinatorLayout: CoordinatorLayout
+    private lateinit var fabAdd: FloatingActionButton
+    private val adapter: SongAdapter by lazy {
+        SongAdapter(
+            this
+        )
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(),
     private fun setupUI() {
         coordinatorLayout = findViewById(R.id.coordinatorLayout)
         fabAdd = findViewById(R.id.floatingActionButton)
-        fabAdd.setOnClickListener{launchAddGameActivity()}
+        fabAdd.setOnClickListener { launchAddSongActivity() }
 
 
 
@@ -40,9 +40,9 @@ class MainActivity : AppCompatActivity(),
         rvSongs.adapter = adapter
     }
 
-    private fun launchAddGameActivity() {
+    private fun launchAddSongActivity() {
         startActivity(
-            Intent(this, AddGameActivity::class.java)
+            Intent(this, AddSongActivity::class.java)
         )
     }
 
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity(),
         builder
             .setTitle(song.name)
             .setMessage("Esta canción es de  ${song.artist}")
-            .setPositiveButton("DETALLE", {_, _ ->
+            .setPositiveButton("DETALLE", { _, _ ->
                 Snackbar.make(
                     coordinatorLayout, "In progress", Snackbar.LENGTH_LONG
                 )

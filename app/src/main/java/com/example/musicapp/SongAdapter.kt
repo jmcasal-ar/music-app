@@ -35,12 +35,11 @@ class SongAdapter(
     override fun onBindViewHolder(holder: SongsViewHolder, position: Int) {
         holder.apply {
             txtName.text = songs[position].name
-            txtPerCent.text = songs[position].perCentDiscount.toPercentDiscount()
-            txtDiscount.text = songs[position].discountPrice.toPriceFormat()
-            txtPrice.text = songs[position].price.toPriceFormat()
+            txtArtist.text = songs[position].artist
+            /*aca va el resto de los campos*/
 
             itemView.setOnClickListener {
-                listener.onSongCLicked(songs[position])
+                listener.onSongClicked(songs[position])
             }
         }
     }
@@ -54,5 +53,5 @@ class SongAdapter(
 }
 
 interface SongsListener {
-    fun onSongCLicked(song: Song)
+    fun onSongClicked(song: Song)
 }
