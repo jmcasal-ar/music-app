@@ -1,11 +1,16 @@
 package com.example.musicapp
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.musicapp.preferences.PreferenceActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
@@ -47,10 +52,8 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun onSongClicked(song: Song) {
-        //ejemplo de como cargar un juego
         val intent = Intent()
-        //como hacemos para pasar un tipo game?
-        intent.putExtra("Game", song)
+        intent.putExtra("Song", song)
 
         /*
         Snackbar
@@ -77,4 +80,6 @@ class MainActivity : AppCompatActivity(),
             .setCancelable(false)
             .show()
     }
+
+
 }
