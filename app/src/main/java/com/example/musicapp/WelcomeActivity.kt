@@ -9,6 +9,7 @@ import android.widget.TextView
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var  tvWelcome: TextView
     private lateinit var btnIngresar: Button
+    private lateinit var btnAboutMe: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +21,18 @@ class WelcomeActivity : AppCompatActivity() {
     private fun setupUI() {
         tvWelcome = findViewById(R.id.tvWelcome)
         btnIngresar = findViewById(R.id.btnIngresar)
+        btnAboutMe = findViewById(R.id.btnAboutMe)
+
+        btnAboutMe.setOnClickListener { ingresarAboutMe() }
 
         btnIngresar.setOnClickListener { ingresarApp() }
+
+
+    }
+
+    private fun ingresarAboutMe() {
+        val intent = Intent(this, AboutMeActivity::class.java)
+        startActivity(intent)
     }
 
     private fun ingresarApp() {
