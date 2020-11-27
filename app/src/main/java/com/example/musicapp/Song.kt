@@ -9,11 +9,11 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 class Song(
     @DatabaseField
-    val name: String,
+    var name: String,
     @DatabaseField
-    val artist: String,
+    var artist: String,
     @DatabaseField
-    val language: Boolean,
+    var spotify: Boolean,
     @DatabaseField(id = true)
     val id: Int? = null
 ) : Parcelable {

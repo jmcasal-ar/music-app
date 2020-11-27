@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.musicapp.db.SongsRepository
 import com.example.musicapp.preferences.PreferenceActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -33,6 +35,11 @@ class MainActivity : AppCompatActivity(),
         setupUI()
     }
 
+    override fun onResume() {
+        super.onResume()
+        retrieveSongs()
+    }
+
     private fun setupUI() {
         coordinatorLayout = findViewById(R.id.coordinatorLayout)
         fabAdd = findViewById(R.id.floatingActionButton)
@@ -51,6 +58,12 @@ class MainActivity : AppCompatActivity(),
         )
     }
 
+    private fun retrieveSongs() {
+        val songs = SongsRepository(this@MainActivity.applicationContext).getSongs()
+        //val games = GamesProvider.getGames()
+        adapter.updateSong(songs)
+    }
+
     override fun onSongClicked(song: Song) {
         val intent = Intent()
         intent.putExtra("Song", song)
@@ -65,21 +78,41 @@ class MainActivity : AppCompatActivity(),
         val builder = AlertDialog.Builder(this)
         builder
             .setTitle(song.name)
-            .setMessage("Esta canción es de  ${song.artist}")
+            .setMessage("${song.artist}")
             .setPositiveButton("DETALLE", { _, _ ->
                 Snackbar.make(
                     coordinatorLayout, "In progress", Snackbar.LENGTH_LONG
                 )
             })
             .setNeutralButton("MODIFICAR", { _, _ ->
-
+                launchEditSongActivity(song.id)
             })
             .setNegativeButton("ELIMINAR", { _, _ ->
+                deleteSong(song)
 
             })
             .setCancelable(false)
             .show()
     }
+
+    private fun launchEditSongActivity(id: Int?) {
+        //Ir hacia otra activity
+        val intent = Intent(this, AddSongActivity::class.java)
+        //metodo para enviar parametros
+        intent.putExtra("IDSONG", id)
+        //Metodo para comenzar la Activity
+        startActivity(intent)
+    }
+
+    private fun deleteSong(song: Song) {
+            SongsRepository(this@MainActivity.applicationContext).deleteSong(song)
+            showMessage("Canción Eliminada")
+            retrieveSongs()
+
+    }
+
+    private fun showMessage(message: String) =
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
 
 }

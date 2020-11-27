@@ -13,8 +13,10 @@ import com.example.musicapp.preferences.PreferenceActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var  tvWelcome: TextView
+    private lateinit var  tvUser: TextView
     private lateinit var btnIngresar: Button
     private lateinit var btnAboutMe: Button
+    private lateinit var btnDonate: Button
     private val preferences: SharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(this)
     }
@@ -26,15 +28,36 @@ class WelcomeActivity : AppCompatActivity() {
         setupUI()
     }
 
+
+
     private fun setupUI() {
         tvWelcome = findViewById(R.id.tvWelcome)
+        tvUser = findViewById(R.id.tvUser)
         btnIngresar = findViewById(R.id.btnIngresar)
         btnAboutMe = findViewById(R.id.btnAboutMe)
+        btnDonate = findViewById(R.id.btnDonar)
 
         btnAboutMe.setOnClickListener { ingresarAboutMe() }
 
+        btnDonate.setOnClickListener { ingresarDonate() }
+
         btnIngresar.setOnClickListener { ingresarApp() }
 
+
+    }
+
+
+
+    override fun onResume() {
+        super.onResume()
+        handleUserTextVisibility()
+
+    }
+
+    private fun handleUserTextVisibility() {
+        val nameUser = preferences.getString("etPreferenceName", "")
+        tvUser.text = nameUser
+        tvUser.visibility
 
     }
 
@@ -45,6 +68,11 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun ingresarApp() {
         val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun ingresarDonate() {
+        val intent = Intent(this, DonateActivity::class.java)
         startActivity(intent)
     }
 
@@ -67,4 +95,6 @@ class WelcomeActivity : AppCompatActivity() {
             Intent(this, PreferenceActivity::class.java)
         )
     }
+
+
 }

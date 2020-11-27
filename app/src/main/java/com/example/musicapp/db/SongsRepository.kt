@@ -15,14 +15,14 @@ class SongsRepository(context: Context) {
         dao = helper.getDao(Song::class.java)
     }
 
-    fun addSong(game: Song) = dao.create(game)
+    fun addSong(song: Song) = dao.create(song)
 
-    fun deleteSong(game: Song) = dao.delete(game)
+    fun deleteSong(song: Song) = dao.delete(song)
 
-    fun updateSong(game: Song) = dao.update(game)
+    fun updateSong(song: Song) = dao.update(song)
 
     fun getSongs() = dao.queryForAll()
 
-    fun getSong(gameId: Int) = dao.queryForId(gameId)
+    fun getSong(songId: Int) = dao.queryForId(songId)
 
 }

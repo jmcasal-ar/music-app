@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:padding="4dp">
 
 
     <TextView
@@ -13,47 +14,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
+        android:padding="8dp"
         android:singleLine="true"
         android:textColor="@color/white"
         tools:text="Yesterday" />
 
     <TextView
         android:id="@+id/txtArtist"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
+        android:padding="8dp"
         android:singleLine="true"
         android:textColor="@color/white"
         tools:text="The Beatles" />
-
-    <TextView
-        android:id="@+id/txtSameLanguage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:singleLine="true"
-        android:textColor="@color/white"
-        tools:text="En tu Idioma" />
-
-    <TextView
-        android:id="@+id/txtNotSameLanguage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:singleLine="true"
-        android:textColor="@color/white"
-        tools:text="En otro idioma" />
-
-
-    <Button
-        android:id="@+id/btnPlay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:singleLine="true"
-        android:text="Play"
-        android:textSize="10sp"
-        app:backgroundTint="@color/colorPrimaryDark" />
 
 
 </LinearLayout>

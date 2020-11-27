@@ -15,8 +15,6 @@ class SongAdapter(
     class SongsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txtName: TextView = itemView.findViewById(R.id.txtName)
         val txtArtist: TextView = itemView.findViewById(R.id.txtArtist)
-        val txtNotSameLanguage: TextView = itemView.findViewById(R.id.txtNotSameLanguage)
-        val txtSameLanguage: TextView = itemView.findViewById(R.id.txtNotSameLanguage)
 
     }
 

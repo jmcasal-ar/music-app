@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    android:background="@color/default_background"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal"
+        android:paddingTop="4dp"
+        android:text="DONACIONES"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingresar monto a donar"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <Spinner
+        android:id="@+id/spMonto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:padding="16dp" />
+
+    <RadioGroup
+        android:id="@+id/rgMetodo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:checkedButton="@id/rbMP">
+
+        <RadioButton
+            android:id="@+id/rbMP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mercado Pago"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <RadioButton
+            android:id="@+id/rbTransfer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transferencia"
+            android:textColor="@color/colorPrimaryDark" />
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btnDonar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="Donar" />
+
+    <TextView
+        android:id="@+id/txtResultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24dp" />
+
+</LinearLayout>
