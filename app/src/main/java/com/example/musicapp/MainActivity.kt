@@ -1,20 +1,16 @@
 package com.example.musicapp
 
+import android.content.ComponentName
 import android.content.Intent
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.musicapp.db.SongsRepository
-import com.example.musicapp.preferences.PreferenceActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+
 
 class MainActivity : AppCompatActivity(),
     SongsListener {
@@ -79,10 +75,17 @@ class MainActivity : AppCompatActivity(),
         builder
             .setTitle(song.name)
             .setMessage("${song.artist}")
-            .setPositiveButton("DETALLE", { _, _ ->
-                Snackbar.make(
-                    coordinatorLayout, "In progress", Snackbar.LENGTH_LONG
-                )
+            .setPositiveButton("PLAY", { _, _ ->
+                if(song.spotify){
+                    val intent = Intent(Intent.ACTION_MAIN)
+                    intent.component =
+                        ComponentName.unflattenFromString("com.spotify.music")
+                    intent.addCategory(Intent.CATEGORY_LAUNCHER)
+                    startActivity(intent)
+                }
+                else {
+                    showMessage("La canción no está en spotify")
+                }
             })
             .setNeutralButton("MODIFICAR", { _, _ ->
                 launchEditSongActivity(song.id)

@@ -1,10 +1,12 @@
 package com.example.musicapp
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.example.musicapp.providers.montoDonacionProvider
-import kotlinx.android.synthetic.main.activity_donate.*
 
 class DonateActivity : AppCompatActivity() {
     private lateinit var spMonto: Spinner
@@ -46,23 +48,32 @@ class DonateActivity : AppCompatActivity() {
 
     private fun realizarDonacion() {
         val monto = spMonto.selectedItem.toString()
+        var urlMP = ""
         val selectedOption: Int = rgMetodo.checkedRadioButtonId
 
         if(monto.isNotEmpty()){
 
             if (selectedOption == R.id.rbTransfer){
-                mostrarCheckboxImpuesto()
+                val builder = AlertDialog.Builder(this)
+                builder
+                    .setTitle("Transferencias")
+                    .setMessage("Por favor, donar el monto de ${monto} pesos al CBU: 00088408008466")
+                    .setPositiveButton("Aceptar", { _, _ ->
+                        MostrarMensaje("Muchas gracias!")
+                    })
+                    .setCancelable(false)
+                    .show()
             } else  {
-                ocultarCheckBoxImpuesto()
+                when(monto){
+                    "5" -> urlMP = "https://mpago.la/1mf8hK3"
+                    "10" -> urlMP = "https://mpago.la/2PA6oE1"
+                    "50" -> urlMP = "https://mpago.la/16r1MYS"
+
+                }
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(urlMP)))
+
             }
 
-            val resultado = when (obtenerRadioButtonSeleccionado()) {
-                R.id.rbBlue -> convertirABlue(pesos.toDouble())
-                R.id.rbBlue -> convertirABolsa(pesos.toDouble())
-                R.id.rbBlue -> convertirANacion(pesos.toDouble())
-                else -> convertirABlue(pesos.toDouble())
-            }
-            txtResultado.text = resultado.toString()
         } else{
             MostrarMensaje("Completar todos los campos")
         }
