@@ -24,6 +24,8 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:fontFamily="sans-serif-black"
         android:text="Ingresar monto a donar"
         android:textColor="@color/colorPrimaryDark" />
 
@@ -32,7 +34,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
-        android:padding="16dp" />
+        android:popupBackground="@color/colorPrimaryDark"
+        android:background="@color/colorPrimaryDark"
+        android:padding="8dp" />
 
     <RadioGroup
         android:id="@+id/rgMetodo"
@@ -45,6 +49,7 @@
             android:id="@+id/rbMP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/colorPrimary"
             android:text="Mercado Pago"
             android:textColor="@color/colorPrimaryDark" />
 
@@ -52,6 +57,7 @@
             android:id="@+id/rbTransfer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/colorPrimary"
             android:text="Transferencia"
             android:textColor="@color/colorPrimaryDark" />
 

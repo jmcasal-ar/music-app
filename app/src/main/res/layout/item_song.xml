@@ -11,20 +11,22 @@
 
     <TextView
         android:id="@+id/txtName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:padding="8dp"
+        android:layout_weight="1"
+        android:ellipsize="none"
+        android:gravity="start"
         android:singleLine="true"
         android:textColor="@color/white"
         tools:text="Yesterday" />
 
     <TextView
         android:id="@+id/txtArtist"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:padding="8dp"
+        android:layout_weight="1"
+        android:ellipsize="none"
+        android:gravity="start"
         android:singleLine="true"
         android:textColor="@color/white"
         tools:text="The Beatles" />

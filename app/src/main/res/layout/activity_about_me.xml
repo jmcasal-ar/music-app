@@ -10,8 +10,10 @@
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:text="ABOUT ME!"
-        android:textColor="@color/black"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,7 +22,7 @@
         android:id="@+id/imgMusic"
         android:layout_width="0dp"
         android:layout_height="250dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,12 +32,13 @@
         android:id="@+id/tvDescriptionAboutMe"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Mi nombre es Juan Manuel Casal, y soy alumno de Programación 4 en ISTEA. La aplucación realizada es un repositorio de música para guardar las canciones favoritas. En caso de que el usuario informe que se encuentra en Spotify, aparece una opción para abrir dicha App."
+        android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toStartOf="@+id/guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@+id/imgMusic"
-        android:textColor="@color/black"
-        android:text="Mi nombre es Juan Manuel Casal, y soy alumno de Programación 4 en ISTEA. La aplucación realizada es un repositorio de música para guardar las canciones favoritas" />
+        app:layout_constraintTop_toBottomOf="@+id/imgMusic" />
 
 
     <androidx.constraintlayout.widget.Guideline

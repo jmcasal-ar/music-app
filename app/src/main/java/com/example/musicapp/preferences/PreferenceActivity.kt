@@ -11,6 +11,8 @@ class PreferenceActivity : AppCompatActivity() {
         setContentView(R.layout.activity_preference)
 
         showPreferencesFragment()
+
+
     }
 
     private fun showPreferencesFragment() {

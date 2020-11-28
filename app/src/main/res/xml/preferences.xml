@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorPrimaryDark"
+    android:backgroundTint="@color/colorPrimaryDark">
 
     <EditTextPreference
+        android:background="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:defaultValue="Usuario"
+        android:foregroundTint="@color/colorPrimaryDark"
         android:key="etPreferenceName"
         android:selectAllOnFocus="true"
         android:singleLine="true"

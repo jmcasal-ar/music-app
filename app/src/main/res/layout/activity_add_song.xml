@@ -13,8 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:backgroundTint="@color/colorPrimary"
         android:gravity="center"
         android:text="Canción"
+        android:textColor="@color/white"
         android:textSize="30sp" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -40,7 +42,7 @@
             android:id="@+id/etArtist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Artist"
+            android:hint="Artista"
             android:inputType="text"
             android:maxLines="3"
             android:singleLine="false" />
@@ -59,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:padding="8dp"
         android:text="Save" />
 
